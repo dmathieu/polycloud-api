@@ -1,0 +1,17 @@
+shared: &SHARED
+  adapter: postgresql
+  encoding: unicode
+  port: 5432
+  host: localhost
+
+development:
+  <<: *SHARED
+  database: polycloud_development
+
+test: &TEST
+  <<: *SHARED
+  database: polycloud_test
+
+production:
+  <<: *SHARED
+  database: polycloud_production
