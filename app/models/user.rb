@@ -2,7 +2,9 @@ require 'bcrypt'
 
 class User < ActiveRecord::Base
 
-  validates :email,              presence: true
+  belongs_to :address
+
+  validates :email,              presence: true, uniqueness: {scope: [:address_id]}
   validates :encrypted_password, presence: true
   validates :token,              presence: true
   after_initialize :set_defaults

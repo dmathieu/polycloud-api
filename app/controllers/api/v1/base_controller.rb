@@ -5,8 +5,12 @@ module Api
       before_filter :enforce_format
 
       protected
+      def current_address
+        @current_addresss ||= Address.find_or_create_by_ip(request.ip)
+      end
+
       def current_user
-        User.find_by_token(user_token) if user_token
+        @current_user ||= current_address.users.find_by_token(user_token) if user_token
       end
 
       def user_token
