@@ -19,8 +19,7 @@ module Api
       end
 
       def enforce_authentication
-        return # No authentication for now
-        raise Polycloud::Exceptions::AccessDenied unless current_user
+        raise Polycloud::Exceptions::AccessDenied if current_address.authenticate? && !current_user
       end
 
       def enforce_format
