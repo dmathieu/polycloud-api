@@ -5,7 +5,7 @@ module Api
         respond_to :json
 
         def show
-          @user = User.find params[:id]
+          @user = current_address.users.find params[:id]
           respond_with @user
         end
 

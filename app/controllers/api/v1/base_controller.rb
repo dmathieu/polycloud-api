@@ -6,7 +6,7 @@ module Api
 
       protected
       def current_address
-        @current_addresss ||= Address.find_or_create_by_ip(request.ip)
+        @current_addresss ||= Address.find_or_create_by(ip: request.ip)
       end
 
       def current_user

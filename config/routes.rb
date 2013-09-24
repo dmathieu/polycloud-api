@@ -8,6 +8,10 @@ Polycloud::Application.routes.draw do
       scope module: 'users' do
         resources :users, controller: 'main', only: :show
       end
+
+      scope module: 'snippets' do
+        resources :snippets, controller: 'main'
+      end
     end
   end
 

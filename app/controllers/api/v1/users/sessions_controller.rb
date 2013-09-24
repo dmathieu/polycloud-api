@@ -6,7 +6,7 @@ module Api
         respond_to :json
 
         def create
-          @user = User.find_by_email permitted_params[:email]
+          @user = current_address.users.find_by_email permitted_params[:email]
           if @user && @user.valid_password?(permitted_params[:password])
             @user.refresh_token!
           else

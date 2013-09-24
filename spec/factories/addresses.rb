@@ -2,6 +2,6 @@
 
 FactoryGirl.define do
   factory :address do
-    ip '127.0.0.1'
+    ip '0.0.0.0'
   end
 end
