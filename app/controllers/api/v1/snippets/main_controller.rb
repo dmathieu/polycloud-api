@@ -39,7 +39,7 @@ module Api
 
         private
         def permitted_params
-          params.require(:snippet).permit(:content)
+          params.require(:snippet).permit(:content, :language_id)
         end
       end
     end

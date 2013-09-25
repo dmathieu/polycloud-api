@@ -11,6 +11,7 @@ Polycloud::Application.routes.draw do
 
       scope module: 'snippets' do
         resources :snippets, controller: 'main'
+        resources :languages
       end
     end
   end

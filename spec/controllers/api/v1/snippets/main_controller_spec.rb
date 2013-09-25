@@ -1,8 +1,9 @@
 require 'spec_helper'
 
 describe Api::V1::Snippets::MainController do
-  let(:user) { subject.user }
-  subject    { FactoryGirl.create(:snippet) }
+  let(:user)     { subject.user }
+  let(:language) { subject.language }
+  subject        { FactoryGirl.create(:snippet) }
 
   before do
     sign_in user
@@ -33,7 +34,7 @@ describe Api::V1::Snippets::MainController do
   describe "create" do
     it "should create a snippet" do
       lambda do
-        post :create, snippet: {content: 'Hello World'}, format: :json
+        post :create, snippet: {content: 'Hello World', language_id: language.id}, format: :json
       end.should change(Snippet, :count).by(1)
       expect(response).to be_success
     end
