@@ -9,6 +9,16 @@ module Api
           respond_with @user
         end
 
+        def create
+          @user = current_address.users.create permitted_params
+          respond_with @user
+        end
+
+        private
+        def permitted_params
+          params.require(:user).permit(:email, :password)
+        end
+
       end
     end
   end

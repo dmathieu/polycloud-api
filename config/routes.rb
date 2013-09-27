@@ -4,9 +4,9 @@ Polycloud::Application.routes.draw do
   scope module: 'api' do
     api_version(1) do
 
-      post '/login' => 'users/sessions#create'
       scope module: 'users' do
-        resources :users, controller: 'main', only: :show
+        resources :users, controller: 'main', only: [:show, :create]
+        resources :sessions, only: :create
       end
 
       scope module: 'snippets' do
