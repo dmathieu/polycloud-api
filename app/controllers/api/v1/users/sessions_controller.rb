@@ -13,7 +13,7 @@ module Api
             raise Polycloud::Exceptions::AccessDenied
           end
 
-          respond_with @user, root: :user, serializer: SessionSerializer
+          respond_with @user, root: :session, serializer: SessionSerializer
         end
 
         private
