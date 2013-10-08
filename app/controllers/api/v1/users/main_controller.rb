@@ -2,6 +2,7 @@ module Api
   module V1
     module Users
       class MainController < ::Api::V1::BaseController
+        skip_before_filter :enforce_authentication, only: :create
         respond_to :json
 
         def show
