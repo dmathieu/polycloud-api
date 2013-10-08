@@ -12,9 +12,9 @@ describe Api::V1::Users::SessionsController do
       expect(response).to be_success
       json = JSON.parse(response.body)
 
-      expect(json).to have_key('user')
-      expect(json['user']).to have_key('token')
-      expect(json['user']['token']).to eql(user.token)
+      expect(json).to have_key('session')
+      expect(json['session']).to have_key('token')
+      expect(json['session']['token']).to eql(user.token)
     end
 
     it "should not sign in" do
