@@ -5,7 +5,7 @@ module Api
         respond_to :json
 
         def index
-          @languages = current_address.languages
+          @languages = current_address.languages.includes(:snippets)
           respond_with @languages, root: 'languages'
         end
 

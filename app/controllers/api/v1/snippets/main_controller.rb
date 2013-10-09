@@ -18,7 +18,7 @@ module Api
           @snippet = current_address.snippets.new permitted_params
 
           if current_address.authenticate?
-            @snipper.user = current_user
+            @snippet.user = current_user
           end
 
           @snippet.save
